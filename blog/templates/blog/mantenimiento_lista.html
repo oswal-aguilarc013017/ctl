@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<a class="btn btn-default" href="{% url 'blog.views.mantenimiento_nueva' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Mantenimiento nuevo</a>
+    {% for post in mantenimientos %}
+        <div class="agenda">
+            <h1><a href="{% url 'blog.views.mantenimiento_detalle' pk=post.pk %}">{{ post.equipo.nombre }}</a></h1>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

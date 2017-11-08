@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+   {% block content %}
+       <div class="agenda">
+           {% if empresas.nombre %}
+           {% endif %}
+           <a class="btn btn-default" href="{% url 'empresa_del' pk=empresas.pk %}"><span class="glyphicon glyphicon-remove"> Eliminar</span></a>
+           <a class="btn btn-default" href="{% url 'empresa_editar' pk=empresas.pk %}"><span class="glyphicon glyphicon-pencil"> Editar</span></a>
+
+           <h2>{{ empresas.nombre }}</h2>
+           <h6>Correo: {{ empresas.correo }}</h6>
+           <h4>Telefono: {{ empresas.telefono }}</h4>
+
+       </div>
+   {% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+   {% block content %}
+       <div class="agenda">
+           {% if mantenimientos.fecha %}
+           <a class="waves-effect waves-light btn" href="{% url 'mantenimiento_del' pk=mantenimientos.pk %}"><i class="material-icons left">delete</i>Eliminar</a>
+           <a class="btn btn-default" href="{% url 'mantenimiento_editar' pk=mantenimientos.pk %}"><span class="glyphicon glyphicon-pencil"> Editar</span></a>
+           <h2>Nombre: {{ mantenimientos.equipo.nombre }}</h4>
+           <h2>Marca: {{ mantenimientos.equipo.marca }}</h4>
+           <h2>Empresa: {{ mantenimientos.empresa.nombre }}</h4>
+           <h3>Fecha: {{ mantenimientos.fecha }}</h1>
+           <h4>Marca: {{ mantenimientos.equipo.marca|linebreaksbr }}</h3>
+             {% endif %}
+
+       </div>
+   {% endblock %}

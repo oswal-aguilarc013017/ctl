@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<html lang="es">
+<html>
+       <head>
+         {% include 'material/includes/material_css.html' %}
+         <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
+         {% include 'material/includes/material_js.html' %}
+
+         <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+         <script src="{% static 'css/js/skel.min.js'%}"></script>
+         <script src="{% static 'css/js/skel-panels.min.js'%}"></script>
+         <script src="{% static 'css/js/init.js'%}"></script>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+         <link type="text/css" rel="stylesheet" href="{% static 'materialize/bin/materialize.css' %}"  media="screen,projection"/>
+
+         <!--Import Google Icon Font-->
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+         <!--Import materialize.css-->
+         <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+
+         <!--Let browser know website is optimized for mobile-->
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+           <title>Control</title>
+       </head>
+
+       <body background-color="#060325">
+         <div id="wrapper">
+
+           <!-- Header -->
+           <div id="header">
+             <div class="">
+
+               <nav class="barra">
+               <div class="nav-wrapper">
+               <a href="" class="brand-logo">Corporation Tech</a>
+               <ul id="nav-mobile" class="right hide-on-med-and-down">
+                 <li><a href="{% url 'blog.views.equipo_lista' %}">Equipo</a></li>
+                 <li><a href="{% url 'blog.views.mantenimiento_lista' %}">Mantenimiento</a></li>
+                 <li><a href="{% url 'blog.views.empresa_lista' %}">Empresa</a></li>
+               {% if user.is_authenticated %}
+               <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+               {% else %}
+               <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+               {% endif %}
+               </ul>
+               </div>
+               </nav>
+
+
+           <!-- /Header -->
+           <div class="content container">
+             <div class="row">
+               <div class="col-md-8">
+                 {% block content %}
+                 {% endblock %}
+            </div>
+           </div>
+         </div>
+       </body>
+   </html>

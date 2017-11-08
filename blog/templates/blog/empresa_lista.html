@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<a class="waves-effect waves-light btn" href="{% url 'blog.views.empresa_nuevo' %}"><i class="material-icons left">create</i>Empresa nueva</a>
+  {% for ar in empresas %}
+      <div class="mantenimiento">
+          <h2><a href="{% url 'blog.views.empresa_detalle' pk=ar.pk %}">{{ ar.nombre }}</a></h2>
+          <div class="text-detail">
+             <p>Telefono: {{ ar.telefono  }}</p>
+          </div>
+      </div>
+  {% endfor %}
+{% endblock %}

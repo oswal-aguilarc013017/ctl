@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+    {% block content %}
+
+<div class="agenda">
+        <h1>Mantenimiento Nuevo</h1>
+        <form enctype="multipart/form-data" method="POST" class="post-form">
+          {% csrf_token %}
+          {{ formulario.as_p }}
+            <button type="submit" class="save btn btn-default">Crear</button>
+        </form>
+      </div>
+    {% endblock %}

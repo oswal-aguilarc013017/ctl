@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="agenda">
+
+    <h1>Editar Empresa</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ formulario.as_p }}
+        <button type="submit" class="save btn btn-default">Terminar</button>
+    </form>
+  </div>
+{% endblock %}

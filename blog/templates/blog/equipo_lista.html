@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+    {% block content %}
+
+    <a class="waves-effect waves-light btn" href="{% url 'blog.views.equipo_nuevo' %}"><i class="material-icons left">create</i>Equipo Nuevo</a>
+    {% for pr in equipos %}
+        <div class="agenda">
+            <h1><a href="{% url 'blog.views.equipo_detalle' pk=pr.pk %}">{{ pr.nombre }}</a></h1>
+            <div class="text-detail">
+              <h5>Descripcion: {{ pr.descripcion }}</h5>
+          </div>
+        </div>
+    {% endfor %}
+  {% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+   {% block content %}
+       <div class="agenda">
+           {% if equipos.nombre %}
+          <h2>{{ equipos.nombre }}</h2>
+           <h5>Descripcion: {{ equipos.descripcion }}</h5>
+           <a class="waves-effect waves-light btn" href="{% url 'equipo_del' pk=equipos.pk %}"><i class="material-icons left">delete</i>Eliminar</a>
+           <a class="waves-effect waves-light btn" href="{% url 'equipo_editar' pk=equipos.pk %}"><i class="material-icons left">edit</i>Editar</a>
+           {% endif %}
+          </div>
+   {% endblock %}
